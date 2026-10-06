@@ -62,12 +62,29 @@ nav ul li a {
     gap: 20px;
     cursor: pointer;
 
-    background: linear-gradient(90deg,
-            #0F0E47,
-            #7373A6);
+
 
     border: none;
     padding: 12px 25px;
+}
+
+.nav-button {
+    border-radius: 50px;
+    font-size: 12px;
+    color: white;
+
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    cursor: pointer;
+
+    background: linear-gradient(150deg,
+            rgba(15, 14, 71, 1) 0%,
+            rgba(115, 115, 166, 0.25) 100%);
+
+    border: 1px solid #55558A;
+
+    padding: 6px 18px;
 }
 
 .arrow-box {
@@ -148,6 +165,102 @@ nav ul li a {
     position: relative;
     z-index: 1;
 }
+
+.hero-callout {
+    position: absolute !important;
+    z-index: 30 !important;
+
+    display: flex;
+    align-items: center;
+
+    pointer-events: none;
+}
+
+
+
+
+
+
+.hero-callout .callout-pill {
+    width: 210px;
+    height: 35px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(245, 226, 166, 1);
+
+    color: rgba(0, 0, 0, 1);
+
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1;
+
+    white-space: nowrap;
+}
+
+
+
+
+.performance-callout .callout-pill {
+    border-radius: 16px 16px 16px 0;
+}
+
+
+
+
+.productivity-callout .callout-pill {
+    border-radius: 16px 0 16px 16px;
+}
+
+
+
+.hero-callout .callout-arrow {
+    position: absolute;
+
+    width: 17px;
+    height: 17px;
+
+    object-fit: contain;
+
+    z-index: 2;
+}
+
+
+
+.performance-callout {
+    top: 40px;
+    left: 5.3%;
+}
+
+
+
+
+.performance-arrow {
+    right: -10px;
+    top: 30px;
+}
+
+
+
+.productivity-callout {
+    top: 410px;
+    right: 5%;
+}
+
+
+
+
+.productivity-arrow {
+    left: -10px;
+    top: -9px;
+
+}
+
+
+
+
 
 /* .................................................. */
 /* ......................polygon shape.............. */
@@ -2067,22 +2180,70 @@ main {
         font-size: 16px;
     }
 
+    .hero-callout .callout-pill {
+        width: 170px;
+        height: 31px;
+
+        font-size: 9px;
+    }
+
+    .hero-callout .callout-arrow {
+        width: 14px;
+        height: 14px;
+    }
+
+    .performance-callout {
+        top: 30px;
+        left: 3%;
+    }
+
+    .performance-arrow {
+        right: -8px;
+        top: 26px;
+    }
+
+    .productivity-callout {
+        top: 54%;
+        right: 2%;
+        transform: translateY(-50%);
+    }
+
+    .productivity-arrow {
+        left: -8px;
+        top: -8px;
+    }
+
     /* INTELLIGENT BUSINESS */
     .intelligent-container {
         width: 88%;
     }
 
     .intelligent-top {
-        gap: 90px;
+        gap: 60px;
     }
+
+
 
     .intelligent-bottom {
-        gap: 50px;
+        grid-template-columns: 1fr;
+        gap: 60px;
+
+        margin-top: 80px;
     }
 
+
+
     .business-cards {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 25px;
     }
+
+
+    .business-card,
+    .business-info {
+        min-width: 0;
+    }
+
 
     .intelligent-title {
         font-size: 36px;
@@ -2095,6 +2256,19 @@ main {
     .stat p {
         font-size: 17px;
     }
+
+
+    .card-two-top {
+        left: 30px;
+        right: 30px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        gap: 15px;
+    }
+
 
     /* SMARTER BUSINESS */
     .smarter-container {
@@ -2211,7 +2385,8 @@ main {
         font-size: 20px;
     }
 
-    /* smarter tools */
+    /*  SMARTER TOOLS */
+
     .smarter-tools {
         padding: 150px 0 120px;
     }
@@ -2239,27 +2414,100 @@ main {
         font-size: 20px;
     }
 
+
+
+
     .pricing-cards {
+        width: 100%;
+        max-width: 900px;
+
+        margin: 80px auto 0;
+
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        grid-template-areas:
+            "featured featured"
+            "starter scale";
+
         gap: 35px;
+
+        align-items: stretch;
     }
 
+
+
+
+    .pricing-card:nth-child(1) {
+        grid-area: starter;
+    }
+
+
+
+
+    .featured-pricing-card {
+        grid-area: featured;
+
+        width: calc((100% - 35px) / 2);
+
+        justify-self: center;
+
+        margin-top: 0;
+
+        min-height: 530px;
+    }
+
+
+
+
+    .pricing-card:nth-child(3) {
+        grid-area: scale;
+    }
+
+
+
+
     .pricing-card {
+        min-width: 0;
         min-height: 460px;
+
         padding: 35px;
     }
+
+
+
+
+    .pricing-card-top {
+        gap: 20px;
+    }
+
+
+
 
     .pricing-icon {
         width: 46px;
         height: 46px;
+
+        flex-shrink: 0;
     }
+
+
 
     .pricing-learn-btn {
         padding: 8px 18px;
+
         font-size: 11px;
+
+        white-space: nowrap;
     }
+
+
+
 
     .pricing-price {
         margin-top: 32px;
+
+        flex-wrap: wrap;
     }
 
     .pricing-price h3 {
@@ -2270,47 +2518,77 @@ main {
         font-size: 13px;
     }
 
+
+
+
     .pricing-card h4 {
         margin-top: 30px;
+
         font-size: 21px;
     }
 
+
+
+
     .pricing-desc {
+        min-height: auto;
+
         font-size: 14px;
     }
+
+
+
 
     .invest-btn {
         margin-top: 30px;
+
         padding: 13px 16px;
     }
 
-    .featured-pricing-card {
-        min-height: 530px;
-        margin-top: 70px;
-    }
+
+
 
     .best-deal {
         min-height: 75px;
+
         font-size: 14px;
     }
 
+
+
+
     .featured-card-body {
         min-height: 445px;
+
         padding: 35px;
     }
+
+
+
 
     .featured-card-body .pricing-price {
         margin-top: 32px;
     }
 
+
+
+
     .featured-card-body h4 {
         margin-top: 30px;
+
         font-size: 21px;
     }
 
+
+
     .featured-card-body .pricing-desc {
+        min-height: auto;
+
         font-size: 14px;
     }
+
+
+
 
     .featured-card-body .active-invest-btn {
         margin-top: 30px;
@@ -2498,6 +2776,9 @@ main {
         width: 28%;
     }
 
+    .hero-callout {
+        display: none !important;
+    }
 
     /* INTELLIGENT BUSINESS */
     .intelligent-business {
@@ -2508,29 +2789,58 @@ main {
         width: 85%;
     }
 
+
     .intelligent-top {
         grid-template-columns: 1fr;
         gap: 35px;
     }
 
+
     .intelligent-bottom {
         grid-template-columns: 1fr;
+
         gap: 60px;
 
         margin-top: 70px;
     }
 
+
+
     .business-cards {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns:
+            repeat(auto-fit, minmax(280px, 1fr));
+
+        gap: 25px;
     }
+
+
+    .business-card {
+        min-width: 0;
+    }
+
 
     .business-info {
         min-height: 430px;
+        min-width: 0;
     }
+
 
     .stat-two {
         bottom: 20px;
     }
+
+
+    .card-two-top {
+        left: 25px;
+        right: 25px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        gap: 12px;
+    }
+
 
 
     /* SMARTER BUSINESS */
@@ -2666,6 +2976,9 @@ main {
     }
 
     /* smarter tools */
+
+
+
     .smarter-tools {
         padding: 130px 0 100px;
     }
@@ -2690,8 +3003,12 @@ main {
 
     .tools-heading p {
         width: 90%;
+
         font-size: 18px;
     }
+
+
+    /* one card per row */
 
     .pricing-cards {
         width: 100%;
@@ -2701,48 +3018,82 @@ main {
 
         grid-template-columns: 1fr;
 
+        grid-template-areas:
+            "starter"
+            "featured"
+            "scale";
+
         gap: 35px;
 
         align-items: stretch;
     }
 
-    .pricing-card {
-        width: 100%;
-        min-height: auto;
 
-        padding: 40px;
-    }
+    /* reset card areas */
 
-    .pricing-price h3 {
-        font-size: 36px;
-    }
-
-    .pricing-card h4 {
-        font-size: 22px;
-    }
-
-    .pricing-desc {
-        min-height: auto;
-        font-size: 15px;
+    .pricing-card:nth-child(1) {
+        grid-area: starter;
     }
 
     .featured-pricing-card {
+        grid-area: featured;
+
         width: 100%;
+
+        justify-self: stretch;
+
         min-height: auto;
 
         margin-top: 0;
     }
 
+    .pricing-card:nth-child(3) {
+        grid-area: scale;
+    }
+
+
+    .pricing-card {
+        width: 100%;
+
+        min-width: 0;
+        min-height: auto;
+
+        padding: 40px;
+    }
+
+
+    .pricing-price h3 {
+        font-size: 36px;
+    }
+
+
+    .pricing-card h4 {
+        font-size: 22px;
+    }
+
+
+    .pricing-desc {
+        min-height: auto;
+
+        font-size: 15px;
+    }
+
+
     .best-deal {
         min-height: 75px;
     }
 
+
     .featured-card-body {
         min-height: auto;
+
         padding: 40px;
     }
 
+
     .featured-card-body .pricing-desc {
+        min-height: auto;
+
         font-size: 15px;
     }
 
@@ -2949,74 +3300,164 @@ main {
         height: 85px;
     }
 
+    .hero-callout {
+        display: none;
+    }
 
     /* INTELLIGENT BUSINESS */
     .intelligent-business {
         margin-top: 50px;
     }
 
+
     .intelligent-container {
         width: 88%;
     }
+
 
     .intelligent-intro {
         font-size: 16px;
     }
 
+
     .intelligent-title {
         font-size: 28px;
     }
 
+
     .intelligent-bottom {
         margin-top: 55px;
+        gap: 45px;
     }
+
+
+    /* Mobile = definitely one card per row */
 
     .business-cards {
         grid-template-columns: 1fr;
         gap: 25px;
     }
 
+
     .card-one,
     .card-two {
+        width: 100%;
+        min-width: 0;
+
         min-height: 400px;
     }
 
+
+    /* CARD TWO */
+
+    .card-two {
+        padding: 25px;
+    }
+
+
+    .card-two-top {
+        top: 30px;
+        left: 25px;
+        right: 25px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        gap: 12px;
+    }
+
+
+    .card-two-content {
+        left: 25px;
+        right: 25px;
+        bottom: 30px;
+    }
+
+
+    .card-two-content p {
+        font-size: 14px;
+        margin-bottom: 15px;
+    }
+
+
     .card-two-content h3 {
         font-size: 20px;
+        line-height: 1.5;
     }
+
+
+    /* learn button */
+
+    .card-two .card-learn-btn {
+        min-width: 130px;
+
+        padding: 10px 20px;
+
+        font-size: 13px;
+    }
+
+
+    /* card one buttons */
+
+    .card-one .card-learn-btn {
+        left: 25px;
+        bottom: 25px;
+
+        min-width: 130px;
+
+        padding: 10px 20px;
+
+        font-size: 13px;
+    }
+
+
+    .card-one .card-arrow-btn {
+        right: 25px;
+        bottom: 25px;
+    }
+
+
+    /* MANAGEMENT INFO */
 
     .management-row {
         grid-template-columns: 1fr;
         gap: 20px;
     }
 
+
     .management-row p {
         font-size: 16px;
     }
 
+
     .business-stats {
         grid-template-columns: 1fr;
+
         gap: 35px;
 
         margin-top: 50px;
     }
 
+
     .business-info {
         min-height: auto;
     }
+
 
     .stat-two {
         position: static;
     }
 
+
     .stat h3 {
         font-size: 26px;
     }
 
+
     .stat p {
         font-size: 15px;
     }
-
 
     /* SMARTER BUSINESS */
     .smarter-business {
@@ -3280,10 +3721,13 @@ main {
 
     .pricing-cards {
         width: 100%;
+        max-width: none;
 
-        margin-top: 55px;
+        grid-template-columns: 1fr;
 
         gap: 25px;
+
+        margin-top: 55px;
     }
 
     .pricing-card {
@@ -3316,6 +3760,7 @@ main {
     .pricing-price {
         margin-top: 26px;
         gap: 7px;
+        flex-wrap: wrap;
     }
 
     .pricing-price h3 {
