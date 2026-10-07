@@ -1236,11 +1236,12 @@ main {
 
 .discovery-img-three {
     background-image: url("../assets/creative.jpg");
-    background-position: center 20%;
+    background-position: center 15%;
 }
 
 .discovery-img-four {
     background-image: url("../assets/campaign.jpg");
+    background-position: center 25%;
 }
 
 .discovery-img-five {
